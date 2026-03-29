@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import DashboardPreview from './DashboardPreview';
 import { ArrowRight, Play } from 'lucide-react';
 
@@ -30,10 +31,10 @@ export default function Hero() {
         
         {/* Calls to Action */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <button className="group px-8 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all w-full sm:w-auto flex items-center justify-center gap-2">
-            Start Free Trial
+          <Link href="/dashboard" className="group px-8 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+            Try it Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
           
           <button className="px-8 py-3 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700 text-slate-300 font-medium transition-all w-full sm:w-auto flex items-center justify-center gap-2">
             <Play className="w-4 h-4" />
