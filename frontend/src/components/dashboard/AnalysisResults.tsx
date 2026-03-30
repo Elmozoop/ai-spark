@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RefreshCcw, Fingerprint, Database, Maximize, Shield, ScanEye, FileText, AlertTriangle, CheckCircle2, Eye, Terminal, ChevronRight, Brain } from 'lucide-react';
+import { RefreshCcw, Fingerprint, Database, Maximize, Shield, ScanEye, FileText, AlertTriangle, CheckCircle2, Eye, Terminal, ChevronRight, Brain, IndianRupee } from 'lucide-react';
 
 interface Props {
   fileName: string;
   preview: string | null;
   onReset: () => void;
   isForged?: boolean;
+  docType?: string;
 }
 
 /* ─── Typewriter Hook ─── */
@@ -191,7 +192,7 @@ function AgentCard({ icon: Icon, title, description, passed, failed, delay }: {
 /* ═════════════════════════════════════════════════
    MAIN ANALYSIS RESULTS COMPONENT
    ═════════════════════════════════════════════════ */
-export default function AnalysisResults({ fileName, preview, onReset, isForged = false }: Props) {
+export default function AnalysisResults({ fileName, preview, onReset, isForged = false, docType = 'auto' }: Props) {
   const riskScore = isForged ? 89 : 12;
   const circumference = 2 * Math.PI * 80;
 
@@ -367,6 +368,18 @@ export default function AnalysisResults({ fileName, preview, onReset, isForged =
           failed={isForged}
           delay={0.7}
         />
+        {docType === 'payslip' && (
+          <AgentCard
+            icon={IndianRupee}
+            title="Income & Employer Verification"
+            description={isForged
+              ? 'Gross pay figure inconsistent with PF deduction percentage. Employer PAN format invalid. Suspected fabricated payslip.'
+              : 'Gross pay, basic, HRA, and PF deductions are internally consistent. Employer PAN verified against MCA database. Payslip is authentic.'}
+            passed={!isForged}
+            failed={isForged}
+            delay={0.8}
+          />
+        )}
       </div>
 
       {/* ─── AI Explanation Terminal ─── */}
