@@ -18,10 +18,6 @@ export default function DashboardPreview() {
             <h2 className="text-slate-200 font-medium">Risk Overview</h2>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-md border border-slate-700/50">
-              <Search className="w-4 h-4 text-slate-400" />
-              <span className="text-sm text-slate-400">Search documents...</span>
-            </div>
             <Bell className="w-5 h-5 text-slate-400" />
           </div>
         </div>
