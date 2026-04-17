@@ -4,37 +4,37 @@ export default function DashboardPreview() {
   return (
     <div className="w-full max-w-5xl mx-auto mt-20 relative">
       {/* Glow Effects */}
-      <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl" />
+      <div className="absolute -inset-1 bg-gradient-to-tr from-orange-500/20 via-red-500/20 to-green-600/20 rounded-3xl blur-2xl" />
       
       {/* Dashboard container */}
-      <div className="relative rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-slate-800 shadow-2xl p-4 sm:p-6 overflow-hidden">
+      <div className="relative rounded-2xl bg-white/90 backdrop-blur-xl border border-stone-200 shadow-2xl p-4 sm:p-6 overflow-hidden">
         
         {/* Header */}
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-800/60">
+        <div className="flex items-center justify-between mb-8 pb-4 border-b border-stone-200">
           <div className="flex items-center gap-4">
-            <div className="h-8 w-8 bg-indigo-500/20 rounded border border-indigo-500/30 flex items-center justify-center">
-              <ShieldCheck className="w-4 h-4 text-indigo-400" />
+            <div className="h-8 w-8 bg-orange-500/10 rounded border border-orange-500/20 flex items-center justify-center">
+              <ShieldCheck className="w-4 h-4 text-orange-500" />
             </div>
-            <h2 className="text-slate-200 font-medium">Risk Overview</h2>
+            <h2 className="text-stone-900 font-medium tracking-tight">Risk Overview</h2>
           </div>
           <div className="flex items-center gap-4">
-            <Bell className="w-5 h-5 text-slate-400" />
+            <Bell className="w-5 h-5 text-stone-400 hover:text-stone-600 cursor-pointer transition-colors" />
           </div>
         </div>
 
         {/* Stats Row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
           {[
-            { label: 'Total Processed', value: '4,102', trend: '+12%', color: 'text-slate-200' },
-            { label: 'Pending Review', value: '23', trend: '-2%', color: 'text-yellow-400' },
-            { label: 'Auto-Approved', value: '3,840', trend: '+15%', color: 'text-green-400' },
-            { label: 'Rejected (Fake)', value: '239', trend: '+5%', color: 'text-red-400' },
+            { label: 'Total Processed', value: '4,102', trend: '+12%', color: 'text-stone-900' },
+            { label: 'Pending Review', value: '23', trend: '-2%', color: 'text-amber-600' },
+            { label: 'Auto-Approved', value: '3,840', trend: '+15%', color: 'text-green-600' },
+            { label: 'Rejected (Fake)', value: '239', trend: '+5%', color: 'text-red-500' },
           ].map((stat, i) => (
-            <div key={i} className="p-4 rounded-xl bg-slate-800/40 border border-slate-700/50">
-              <p className="text-sm tracking-wide text-slate-400 mb-2">{stat.label}</p>
+            <div key={i} className="p-4 rounded-xl bg-stone-50 border border-stone-100 shadow-sm">
+              <p className="text-sm tracking-wide text-stone-500 mb-2">{stat.label}</p>
               <div className="flex items-end justify-between">
                 <span className={`text-2xl font-semibold ${stat.color}`}>{stat.value}</span>
-                <span className="text-xs text-green-400 font-medium">{stat.trend}</span>
+                <span className={`text-xs font-medium ${stat.trend.startsWith('+') ? 'text-green-600' : 'text-red-500'}`}>{stat.trend}</span>
               </div>
             </div>
           ))}
@@ -44,44 +44,44 @@ export default function DashboardPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Left Panel */}
           <div className="md:col-span-2 space-y-6">
-            <div className="p-6 rounded-xl bg-slate-800/40 border border-slate-700/50 h-64 relative overflow-hidden">
-               <h3 className="text-sm font-medium text-slate-300 mb-4">Fraud Score Trend</h3>
-               <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-indigo-500/10 to-transparent flex items-end px-6 pb-6 gap-2">
+            <div className="p-6 rounded-xl bg-white shadow-sm border border-stone-200 h-64 relative overflow-hidden">
+               <h3 className="text-sm font-medium text-stone-600 mb-4">Fraud Score Trend</h3>
+               <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-orange-500/5 to-transparent flex items-end px-6 pb-6 gap-2">
                  {/* Fake Chart Bars */}
                  {[40, 65, 30, 80, 45, 20, 90, 50, 60, 30, 40, 70].map((h, i) => (
-                   <div key={i} className="flex-1 rounded-t-sm bg-indigo-500/40 hover:bg-indigo-400/60 transition-colors" style={{ height: `${h}%` }}></div>
+                   <div key={i} className="flex-1 rounded-t-sm bg-orange-400/50 hover:bg-orange-500 transition-colors" style={{ height: `${h}%` }}></div>
                  ))}
                </div>
             </div>
             
-            <div className="bg-slate-800/40 border border-slate-700/50 rounded-xl overflow-hidden">
-               <div className="p-4 border-b border-slate-700/50 flex items-center justify-between">
-                 <h3 className="text-sm font-medium text-slate-300">Recent Validations</h3>
+            <div className="bg-white border border-stone-200 shadow-sm rounded-xl overflow-hidden">
+               <div className="p-4 border-b border-stone-100 flex items-center justify-between">
+                 <h3 className="text-sm font-medium text-stone-600">Recent Validations</h3>
                </div>
-               <div className="p-4 space-y-3">
+               <div className="p-2 space-y-1">
                  {[
                    { name: 'Aadhaar Card - John Doe', id: 'DOC-1029', status: 'Forged', score: 92 },
                    { name: 'PAN Card - Jane Smith', id: 'DOC-1028', status: 'Clean', score: 12 },
                    { name: 'Passport - M. Kumar', id: 'DOC-1027', status: 'Manual', score: 48 },
                  ].map((doc, i) => (
-                   <div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-700/30 transition-colors border border-transparent hover:border-slate-600/50">
+                   <div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-stone-50 transition-colors border border-transparent hover:border-stone-100">
                      <div className="flex items-center gap-3">
-                       <div className="h-8 w-8 rounded bg-slate-700/50 flex items-center justify-center">
-                         <Activity className="w-4 h-4 text-slate-300" />
+                       <div className="h-8 w-8 rounded bg-stone-100 flex items-center justify-center border border-stone-200">
+                         <Activity className="w-4 h-4 text-stone-500" />
                        </div>
                        <div>
-                         <p className="text-sm font-medium text-slate-200">{doc.name}</p>
-                         <p className="text-xs text-slate-500">{doc.id}</p>
+                         <p className="text-sm font-medium text-stone-800">{doc.name}</p>
+                         <p className="text-xs text-stone-500">{doc.id}</p>
                        </div>
                      </div>
                      <div className="flex items-center gap-4">
                        <span className={`text-xs px-2 py-1 rounded border font-medium
-                         ${doc.status === 'Forged' ? 'bg-red-500/10 border-red-500/20 text-red-400' : 
-                           doc.status === 'Clean' ? 'bg-green-500/10 border-green-500/20 text-green-400' : 
-                           'bg-yellow-500/10 border-yellow-500/20 text-yellow-400'}`}>
+                         ${doc.status === 'Forged' ? 'bg-red-50 border-red-200 text-red-600' : 
+                           doc.status === 'Clean' ? 'bg-green-50 border-green-200 text-green-700' : 
+                           'bg-amber-50 border-amber-200 text-amber-700'}`}>
                          {doc.status}
                        </span>
-                       <span className="text-sm font-semibold text-slate-300 w-8 text-right">{doc.score}</span>
+                       <span className="text-sm font-semibold text-stone-700 w-8 text-right">{doc.score}</span>
                      </div>
                    </div>
                  ))}
@@ -90,45 +90,45 @@ export default function DashboardPreview() {
           </div>
 
           {/* Right Panel: Risk Flagging */}
-          <div className="p-5 rounded-xl bg-slate-800/40 border border-slate-700/50">
-            <h3 className="text-sm font-medium text-slate-300 mb-4">Live Threat Insights</h3>
+          <div className="p-5 rounded-xl bg-white shadow-sm border border-stone-200">
+            <h3 className="text-sm font-medium text-stone-600 mb-4">Live Threat Insights</h3>
             
             <div className="space-y-4">
-              <div className="p-4 rounded-lg bg-red-500/5 border border-red-500/20">
+              <div className="p-4 rounded-lg bg-red-50 border border-red-100">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <ShieldAlert className="w-4 h-4 text-red-400" />
-                    <span className="text-sm font-medium text-red-200">High Risk Score</span>
+                    <ShieldAlert className="w-4 h-4 text-red-500" />
+                    <span className="text-sm font-medium text-red-700 tracking-tight">High Risk Score</span>
                   </div>
-                  <span className="text-lg font-bold text-red-400">89</span>
+                  <span className="text-lg font-bold text-red-600">89</span>
                 </div>
-                <p className="text-xs text-slate-400 mb-3">Found multiple anomalies in DOC-1033. EXIF metadata mismatch and layout tampering detected.</p>
-                <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-red-600 to-red-400 w-[89%] rounded-full"></div>
+                <p className="text-xs text-red-600/80 mb-3 leading-relaxed">Found multiple anomalies in DOC-1033. EXIF metadata mismatch and layout tampering detected.</p>
+                <div className="h-1.5 w-full bg-red-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-red-500 to-red-400 w-[89%] rounded-full"></div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg bg-yellow-500/5 border border-yellow-500/20">
+              <div className="p-4 rounded-lg bg-amber-50 border border-amber-100">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <Activity className="w-4 h-4 text-yellow-500" />
-                    <span className="text-sm font-medium text-yellow-200">Blur Detected</span>
+                    <Activity className="w-4 h-4 text-amber-500" />
+                    <span className="text-sm font-medium text-amber-700 tracking-tight">Blur Detected</span>
                   </div>
                 </div>
-                <p className="text-xs text-slate-400">DOC-1044 rejected at Integrity Validation Layer (Laplacian variance low).</p>
+                <p className="text-xs text-amber-700/80 leading-relaxed">DOC-1044 rejected at Integrity Validation Layer (Laplacian variance low).</p>
               </div>
               
-              <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700/50">
-                 <h4 className="text-xs font-medium text-slate-300 mb-3">Model Accuracy</h4>
-                 <div className="space-y-2">
+              <div className="p-4 rounded-lg bg-stone-50 border border-stone-100 mt-6">
+                 <h4 className="text-xs font-medium text-stone-600 mb-3 uppercase tracking-wider">Model Accuracy</h4>
+                 <div className="space-y-3">
                    {['OCR Field Matching', 'Face Alignment', 'QR Decoding'].map((lbl, i) => (
                      <div key={i} className="space-y-1">
-                       <div className="flex justify-between text-xs text-slate-400">
+                       <div className="flex justify-between text-xs text-stone-500 font-medium">
                          <span>{lbl}</span>
                          <span>99.{i + 7}%</span>
                        </div>
-                       <div className="h-1 w-full bg-slate-900 rounded-full">
-                         <div className="h-full bg-indigo-500 rounded-full" style={{ width: `99.${i + 7}%` }}></div>
+                       <div className="h-1 w-full bg-stone-200 rounded-full">
+                         <div className="h-full bg-green-500 rounded-full" style={{ width: `99.${i + 7}%` }}></div>
                        </div>
                      </div>
                    ))}

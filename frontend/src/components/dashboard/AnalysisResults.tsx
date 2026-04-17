@@ -92,13 +92,13 @@ function HeatmapSlider({ preview }: { preview: string | null }) {
   const src = preview || '/placeholder-doc.png';
 
   return (
-    <div className="rounded-xl overflow-hidden border border-slate-700/50 bg-slate-950">
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-800/80">
-        <h3 className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-          <Eye className="w-4 h-4 text-purple-400" />
+    <div className="rounded-xl overflow-hidden border border-stone-200 bg-white shadow-sm">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-stone-100">
+        <h3 className="text-sm font-semibold text-stone-800 flex items-center gap-2">
+          <Eye className="w-4 h-4 text-orange-500" />
           ELA Forensic Heatmap
         </h3>
-        <span className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Drag to reveal</span>
+        <span className="text-[10px] uppercase tracking-wider text-stone-500 font-bold">Drag to reveal</span>
       </div>
       <div
         ref={containerRef}
@@ -109,7 +109,7 @@ function HeatmapSlider({ preview }: { preview: string | null }) {
         {/* Original Layer (full) */}
         <div className="absolute inset-0">
           <img src={src} alt="Original" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-900/20" />
+          <div className="absolute inset-0 bg-stone-900/10" />
         </div>
 
         {/* Heatmap Layer (clipped) */}
@@ -133,22 +133,22 @@ function HeatmapSlider({ preview }: { preview: string | null }) {
 
         {/* Slider handle bar */}
         <div
-          className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] z-10"
+          className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)] z-10"
           style={{ left: `${sliderPos}%` }}
         >
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white/90 shadow-xl flex items-center justify-center">
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white/90 shadow-lg flex items-center justify-center border border-stone-200">
             <div className="flex gap-0.5">
-              <ChevronRight className="w-3 h-3 text-slate-900 rotate-180" />
-              <ChevronRight className="w-3 h-3 text-slate-900" />
+              <ChevronRight className="w-3 h-3 text-stone-800 rotate-180" />
+              <ChevronRight className="w-3 h-3 text-stone-800" />
             </div>
           </div>
         </div>
 
         {/* Labels */}
-        <div className="absolute bottom-2 left-3 text-[10px] font-bold text-red-400 uppercase bg-black/60 px-2 py-0.5 rounded z-20">
+        <div className="absolute bottom-2 left-3 text-[10px] font-bold text-red-500 uppercase bg-white/90 px-2 py-0.5 rounded shadow-sm z-20">
           Heatmap
         </div>
-        <div className="absolute bottom-2 right-3 text-[10px] font-bold text-slate-300 uppercase bg-black/60 px-2 py-0.5 rounded z-20">
+        <div className="absolute bottom-2 right-3 text-[10px] font-bold text-stone-700 uppercase bg-white/90 px-2 py-0.5 rounded shadow-sm z-20">
           Original
         </div>
       </div>
@@ -165,25 +165,24 @@ function AgentCard({ icon: Icon, title, description, passed, failed, delay }: {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.4 }}
-      className={`p-5 rounded-xl border flex items-start gap-4 transition-all
-        ${failed ? 'bg-red-500/5 border-red-500/20' :
-          passed ? 'bg-emerald-500/5 border-emerald-500/20' :
-          'bg-slate-800/30 border-slate-700/50'}
+      className={`p-5 rounded-xl flex items-start gap-4 transition-all border shadow-sm
+        ${failed ? 'bg-red-50 border-red-200' :
+          passed ? 'bg-green-50 border-green-200' :
+          'bg-stone-50 border-stone-200'}
       `}
-      style={{ backdropFilter: 'blur(12px)' }}
     >
-      <div className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center ${
-        failed ? 'bg-red-500/10' : passed ? 'bg-emerald-500/10' : 'bg-slate-800'
+      <div className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center border ${
+        failed ? 'bg-red-100 border-red-200' : passed ? 'bg-green-100 border-green-200' : 'bg-stone-100 border-stone-200'
       }`}>
-        <Icon className={`w-5 h-5 ${failed ? 'text-red-400' : passed ? 'text-emerald-400' : 'text-indigo-400'}`} />
+        <Icon className={`w-5 h-5 ${failed ? 'text-red-600' : passed ? 'text-green-600' : 'text-orange-500'}`} />
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between mb-1">
-          <h4 className="text-sm font-semibold text-slate-200">{title}</h4>
-          {failed && <span className="text-[10px] uppercase font-bold text-red-400 border border-red-500/30 px-2 py-0.5 rounded">FAILED</span>}
-          {passed && <span className="text-[10px] uppercase font-bold text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded">PASSED</span>}
+          <h4 className="text-sm font-semibold text-stone-900">{title}</h4>
+          {failed && <span className="text-[10px] uppercase font-bold text-red-700 bg-red-100 border border-red-200 px-2 py-0.5 rounded">FAILED</span>}
+          {passed && <span className="text-[10px] uppercase font-bold text-green-700 bg-green-100 border border-green-200 px-2 py-0.5 rounded">PASSED</span>}
         </div>
-        <p className="text-xs text-slate-400 leading-relaxed">{description}</p>
+        <p className="text-xs text-stone-600 leading-relaxed">{description}</p>
       </div>
     </motion.div>
   );
@@ -212,20 +211,20 @@ export default function AnalysisResults({ fileName, preview, onReset, isForged =
       {/* ─── Header ─── */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
         <div>
-          <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+          <p className="text-xs font-bold text-orange-600 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-600 animate-pulse" />
             Analysis Complete
           </p>
-          <h2 className="text-2xl font-bold text-white flex items-center gap-3 flex-wrap">
+          <h2 className="text-2xl font-bold text-stone-900 flex items-center gap-3 flex-wrap">
             {fileName}
             <motion.span 
               initial={{ scale: 0 }} 
               animate={{ scale: 1 }} 
               transition={{ type: 'spring', delay: 0.3 }}
-              className={`text-xs px-3 py-1.5 border rounded-full font-bold ${
+              className={`text-xs px-3 py-1.5 border rounded-full font-bold shadow-sm ${
                 isForged 
-                  ? 'bg-red-500/10 border-red-500/20 text-red-400' 
-                  : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
+                  ? 'bg-red-50 border-red-200 text-red-700' 
+                  : 'bg-green-50 border-green-200 text-green-700'
               }`}
             >
               {isForged ? '⚠ Forged / Tampered' : '✓ Genuine'}
@@ -234,7 +233,7 @@ export default function AnalysisResults({ fileName, preview, onReset, isForged =
         </div>
         <button 
           onClick={onReset} 
-          className="flex items-center gap-2 px-5 py-2.5 border border-slate-700 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:border-slate-600 transition-all bg-slate-900/50"
+          className="flex items-center gap-2 px-5 py-2.5 bg-white border border-stone-200 rounded-xl text-sm font-medium text-stone-600 hover:bg-stone-50 hover:text-stone-900 shadow-sm transition-all"
         >
           <RefreshCcw className="w-4 h-4" /> Scan Another
         </button>
@@ -248,26 +247,25 @@ export default function AnalysisResults({ fileName, preview, onReset, isForged =
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="col-span-1 p-8 rounded-2xl border border-slate-800/80 flex flex-col items-center justify-center text-center relative overflow-hidden"
-          style={{ backdropFilter: 'blur(16px)', background: 'rgba(15, 23, 42, 0.6)' }}
+          className="col-span-1 p-8 rounded-2xl border border-stone-200 bg-stone-50 shadow-sm flex flex-col items-center justify-center text-center relative overflow-hidden"
         >
           {/* Background glow */}
-          <div className={`absolute top-0 right-0 w-40 h-40 blur-[80px] opacity-25 rounded-full ${isForged ? 'bg-red-500' : 'bg-emerald-500'}`} />
+          <div className={`absolute top-0 right-0 w-40 h-40 blur-[80px] opacity-10 rounded-full ${isForged ? 'bg-red-500' : 'bg-green-500'}`} />
           
-          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-8">Fraud Risk Score</p>
+          <p className="text-xs font-bold text-stone-500 uppercase tracking-widest mb-8">Fraud Risk Score</p>
           
           {/* SVG Ring Gauge */}
           <div className="relative w-44 h-44 flex items-center justify-center mb-6">
             <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 180 180">
               {/* Background ring */}
-              <circle cx="90" cy="90" r="80" fill="transparent" stroke="currentColor" strokeWidth="8" className="text-slate-800/80" />
+              <circle cx="90" cy="90" r="80" fill="transparent" stroke="currentColor" strokeWidth="8" className="text-stone-200" />
               {/* Score arc */}
               <motion.circle
                 cx="90" cy="90" r="80"
                 fill="transparent"
                 strokeWidth="8"
                 strokeLinecap="round"
-                className={isForged ? 'text-red-500' : 'text-emerald-500'}
+                className={isForged ? 'text-red-500' : 'text-green-500'}
                 stroke="currentColor"
                 strokeDasharray={circumference}
                 initial={{ strokeDashoffset: circumference }}
@@ -276,12 +274,12 @@ export default function AnalysisResults({ fileName, preview, onReset, isForged =
               />
             </svg>
             <div className="flex flex-col items-center">
-              <AnimatedScore target={riskScore} color={isForged ? 'text-red-400' : 'text-emerald-400'} />
-              <span className="text-xs text-slate-500 font-bold mt-1">/ 100</span>
+              <AnimatedScore target={riskScore} color={isForged ? 'text-red-600' : 'text-green-600'} />
+              <span className="text-xs text-stone-400 font-bold mt-1">/ 100</span>
             </div>
           </div>
           
-          <p className={`text-sm font-medium ${isForged ? 'text-red-400' : 'text-emerald-400'}`}>
+          <p className={`text-sm font-medium ${isForged ? 'text-red-600' : 'text-green-600'}`}>
             {riskScore <= 30 ? 'Genuine' : riskScore <= 65 ? 'Suspicious — Manual Review' : 'Forged — Auto-Rejected'}
           </p>
         </motion.div>
@@ -300,11 +298,10 @@ export default function AnalysisResults({ fileName, preview, onReset, isForged =
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="mt-4 p-5 rounded-xl border border-slate-800/80"
-            style={{ backdropFilter: 'blur(12px)', background: 'rgba(15, 23, 42, 0.5)' }}
+            className="mt-4 p-5 rounded-xl border border-stone-200 bg-white shadow-sm"
           >
-            <h3 className="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-              <Database className="w-4 h-4 text-indigo-400" /> Cross-Validation: OCR ↔ QR Data
+            <h3 className="text-sm font-semibold text-stone-800 mb-4 flex items-center gap-2">
+              <Database className="w-4 h-4 text-orange-500" /> Cross-Validation: OCR ↔ QR Data
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
@@ -314,11 +311,11 @@ export default function AnalysisResults({ fileName, preview, onReset, isForged =
                 { label: 'QR DOB', value: isForged ? '15/08/1996' : '15/08/1995', match: !isForged },
               ].map((field, i) => (
                 <div key={i} className="space-y-1">
-                  <span className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">{field.label}</span>
-                  <p className={`text-sm font-medium ${field.match ? 'text-slate-200' : 'text-red-400 line-through'}`}>
+                  <span className="text-[10px] uppercase tracking-wider text-stone-500 font-bold">{field.label}</span>
+                  <p className={`text-sm font-medium ${field.match ? 'text-stone-800' : 'text-red-600 line-through'}`}>
                     {field.value}
                   </p>
-                  {!field.match && <span className="text-[10px] text-red-400 font-bold">MISMATCH</span>}
+                  {!field.match && <span className="text-[10px] text-red-500 font-bold">MISMATCH</span>}
                 </div>
               ))}
             </div>
@@ -387,24 +384,23 @@ export default function AnalysisResults({ fileName, preview, onReset, isForged =
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.4 }}
-        className="rounded-xl border border-slate-800/80 overflow-hidden"
-        style={{ backdropFilter: 'blur(12px)', background: 'rgba(15, 23, 42, 0.5)' }}
+        className="rounded-xl border border-stone-200 bg-stone-50 shadow-inner overflow-hidden"
       >
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-800/80 bg-slate-900/50">
-          <Brain className="w-4 h-4 text-purple-400" />
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">AI Reasoning Engine</span>
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-stone-200 bg-stone-100">
+          <Brain className="w-4 h-4 text-orange-500" />
+          <span className="text-xs font-bold text-stone-600 uppercase tracking-wider">AI Reasoning Engine</span>
           <div className="ml-auto flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-red-500/80" />
-            <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
-            <div className="w-2 h-2 rounded-full bg-green-500/80" />
+            <div className="w-2 h-2 rounded-full bg-red-500 flex items-center justify-center text-[6px] font-bold text-white px-[4px]"></div>
+            <div className="w-2 h-2 rounded-full bg-amber-500" />
+            <div className="w-2 h-2 rounded-full bg-green-500" />
           </div>
         </div>
         <div className="p-5 font-mono">
           <div className="flex items-start gap-2">
-            <Terminal className="w-4 h-4 text-indigo-400 mt-0.5 flex-shrink-0" />
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <Terminal className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
+            <p className="text-sm text-stone-700 leading-relaxed">
               {typedExplanation}
-              {!typingDone && <span className="inline-block w-2 h-4 bg-indigo-400 animate-pulse ml-0.5 align-middle" />}
+              {!typingDone && <span className="inline-block w-2 h-4 bg-orange-500 animate-pulse ml-0.5 align-middle" />}
             </p>
           </div>
         </div>

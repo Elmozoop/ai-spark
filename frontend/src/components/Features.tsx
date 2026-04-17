@@ -30,26 +30,26 @@ export default function Features() {
   }, []);
 
   const iconMap = [
-    <ShieldCheck key="0" className="w-6 h-6 text-emerald-400" />,
-    <Crosshair key="1" className="w-6 h-6 text-blue-400" />,
-    <Fingerprint key="2" className="w-6 h-6 text-purple-400" />,
-    <RefreshCcw key="3" className="w-6 h-6 text-indigo-400" />,
-    <BookOpen key="4" className="w-6 h-6 text-rose-400" />,
-    <Database key="5" className="w-6 h-6 text-amber-400" />,
+    <ShieldCheck key="0" className="w-6 h-6 text-green-600" />,
+    <Crosshair key="1" className="w-6 h-6 text-orange-500" />,
+    <Fingerprint key="2" className="w-6 h-6 text-stone-700" />,
+    <RefreshCcw key="3" className="w-6 h-6 text-orange-600" />,
+    <BookOpen key="4" className="w-6 h-6 text-red-500" />,
+    <Database key="5" className="w-6 h-6 text-amber-500" />,
   ];
 
   return (
     <section
       id="features"
       ref={sectionRef}
-      className="py-24 relative w-full border-t border-slate-800/60 bg-slate-950/50"
+      className="py-24 relative w-full border-t border-stone-200 bg-[#fafafa]"
     >
       {/* Subtle background glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-indigo-600/5 blur-[100px] rounded-full" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-orange-500/5 blur-[100px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative">
@@ -59,13 +59,13 @@ export default function Features() {
           ref={headingRef}
           className="reveal-card text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-sm font-medium text-indigo-400 uppercase tracking-widest mb-3">
+          <h2 className="text-sm font-medium text-orange-500 uppercase tracking-widest mb-3">
              {t.features.badge}
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h3 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
              {t.features.title}
           </h3>
-          <p className="text-slate-400 text-lg">
+          <p className="text-stone-600 text-lg">
              {t.features.description}
           </p>
         </div>
@@ -76,27 +76,27 @@ export default function Features() {
             <div
               key={i}
               ref={(el) => { cardRefs.current[i] = el; }}
-              className="reveal-card group p-8 rounded-2xl bg-gradient-to-b from-slate-800/40 to-slate-900/40 border border-slate-700/50
-                         hover:bg-slate-800/60 hover:border-indigo-500/30
+              className="reveal-card group p-8 rounded-2xl bg-white border border-stone-200 shadow-sm
+                         hover:shadow-[0_8px_30px_rgba(249,115,22,0.12)] hover:border-orange-500/30
                          transition-all duration-300 ease-out
-                         hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(99,102,241,0.12)]
+                         hover:-translate-y-1.5
                          cursor-default"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               {/* Icon box — slight scale on card hover */}
-              <div className="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center mb-6 shadow-inner border border-white/5 group-hover:scale-110 group-hover:border-white/10 transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-stone-50 flex items-center justify-center mb-6 shadow-sm border border-stone-100 group-hover:scale-110 group-hover:border-orange-200 transition-all duration-300">
                 {iconMap[i]}
               </div>
 
-              <h4 className="text-xl font-semibold text-slate-200 mb-3 group-hover:text-white transition-colors duration-200">
+              <h4 className="text-xl font-semibold text-stone-800 mb-3 group-hover:text-orange-600 transition-colors duration-200">
                 {feature.title}
               </h4>
-              <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-200">
+              <p className="text-stone-500 text-sm leading-relaxed transition-colors duration-200">
                 {feature.description}
               </p>
 
               {/* Bottom accent line that grows on hover */}
-              <div className="mt-6 h-px w-0 group-hover:w-full bg-gradient-to-r from-indigo-500/60 to-purple-500/60 transition-all duration-500 ease-out rounded-full" />
+              <div className="mt-6 h-px w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 to-green-600/60 transition-all duration-500 ease-out rounded-full" />
             </div>
           ))}
         </div>
