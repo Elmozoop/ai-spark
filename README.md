@@ -1,10 +1,10 @@
-# 🔐 Satya AI
+# Satya AI
 
 ### Multi-Layer Document Fraud Detection System 🚀
 
 ---
 
-## 🧠 Overview
+##  Overview
 
 AuthentiScan AI is a **multi-layer forensic document verification system** designed to detect **tampered or forged identity documents before KYC verification**.
 
@@ -12,19 +12,19 @@ Unlike traditional systems that only verify identity, our solution ensures the *
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Fraudulent documents (edited IDs, fake photos, mismatched data) are a major entry point for:
 
-* 💳 Financial fraud
-* 🏦 Fake KYC onboarding
-* ⚠️ Identity theft
+* Financial fraud
+*  Fake KYC onboarding
+*  Identity theft
 
 Most systems assume documents are genuine — we challenge that assumption.
 
 ---
 
-## 💡 Solution
+##  Solution
 
 We built a **real-time fraud detection pipeline** that:
 
@@ -37,17 +37,17 @@ We built a **real-time fraud detection pipeline** that:
 
 ## ⚙️ Key Features
 
-### 🔍 Multi-Signal Verification
+###  Multi-Signal Verification
 
-* OCR Text Extraction 📄
-* QR Code Validation 🔗
-* Image Forensics (ELA Heatmap) 🔬
-* Metadata Analysis 🧾
-* Optional Face/Voice Checks 🧠
+* OCR Text Extraction 
+* QR Code Validation 
+* Image Forensics (ELA Heatmap) 
+* Metadata Analysis 
+* Optional Face/Voice Checks 
 
 ---
 
-### 🔄 Cross-Validation Engine (Core Innovation 🔥)
+### 🔄 Cross-Validation Engine (Core Innovation )
 
 > Signals verify each other instead of working independently
 
@@ -55,11 +55,11 @@ Example:
 
 * QR → “Ramesh”
 * OCR → “Rajesh”
-  ➡️ 🚨 Fraud detected instantly
+   🚨 Fraud detected instantly
 
 ---
 
-### 📊 Fraud Scoring System
+###  Fraud Scoring System
 
 * Weighted multi-signal scoring (0–100)
 * Dynamic weight redistribution
@@ -67,7 +67,7 @@ Example:
 
 ---
 
-### 🧾 Explainable AI (RAG Layer)
+###  Explainable AI (RAG Layer)
 
 * Human-readable output
 * RBI-compliant reasoning
@@ -77,7 +77,7 @@ Example:
 
 ---
 
-### 🛡️ Adversarial Robustness
+###  Adversarial Robustness
 
 * Preprocessing defense (denoise, re-encode)
 * Multi-layer validation
@@ -85,7 +85,7 @@ Example:
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 Input → Quality Check → Preprocessing → Multi-Agent Analysis  
@@ -94,23 +94,23 @@ Input → Quality Check → Preprocessing → Multi-Agent Analysis
 
 ---
 
-## 🧠 Tech Stack
+##  Tech Stack
 
-### 🔧 Backend
+###  Backend
 
-* 🐍 Python
-* ⚡ FastAPI (Async API)
-* 🚀 Uvicorn
-* 🗄️ SQLAlchemy
+*  Python
+*  FastAPI (Async API)
+*  Uvicorn
+*  SQLAlchemy
 
-### 🤖 AI / ML
+###  AI / ML
 
-* 🔍 EasyOCR (Text Extraction)
-* 🤗 HuggingFace Models (Deepfake Detection)
-* 🔬 OpenCV (Image Processing + ELA)
-* 🧠 Gemini API (Explainability)
+*  EasyOCR (Text Extraction)
+*  HuggingFace Models (Deepfake Detection)
+*  OpenCV (Image Processing + ELA)
+*  Gemini API (Explainability)
 
-### 🧩 Other Tools
+###  Other Tools
 
 * QR Decoder (pyzbar)
 * Fuzzy Matching (RapidFuzz)
@@ -130,7 +130,7 @@ Input → Quality Check → Preprocessing → Multi-Agent Analysis
 
 ---
 
-## 🧪 Example Output
+##  Example Output
 
 ```json
 {
@@ -143,7 +143,7 @@ Input → Quality Check → Preprocessing → Multi-Agent Analysis
 
 ---
 
-## 🏆 What Makes Us Different
+##  What Makes Us Different
 
 | Traditional KYC   | AuthentiScan AI                |
 | ----------------- | ------------------------------ |
@@ -154,41 +154,36 @@ Input → Quality Check → Preprocessing → Multi-Agent Analysis
 
 ---
 
-## 🚀 Use Cases
+##  Use Cases
 
-* 🏦 Banking & KYC Verification
-* 💳 Fintech Onboarding
-* 🛂 Identity Fraud Detection
-* 📄 Document Authentication Systems
-
----
-
-## 🔮 Future Scope
-
-* 🔗 Blockchain-based audit logs
-* 📈 Learned weight optimization
-* 🌐 Real-time API deployment at scale
-* 🧠 Advanced deepfake detection
+*  Banking & KYC Verification
+* Fintech Onboarding
+* Identity Fraud Detection
+* Document Authentication Systems
 
 ---
 
-## 👥 Team
+##  Future Scope
 
-* 👨‍💻 Shreyash Gupta
-* 👩‍💻 Astha Singh
-* 👨‍💻 Yash Raj
-* 👩‍💻 Neha Jamulla
+*  Blockchain-based audit logs
+*  Learned weight optimization
+*  Real-time API deployment at scale
+*  Advanced deepfake detection
 
 ---
 
-## 🏁 Conclusion
+
+
+---
+
+##  Conclusion
 
 > “We don’t just verify identity —
 > we verify whether the document itself can be trusted.”
 
 ---
 
-## ⭐ If you like this project
+##  If you like this project
 
 Give it a ⭐ on GitHub and support our work!
 
